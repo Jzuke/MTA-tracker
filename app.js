@@ -36,7 +36,7 @@ setInterval(() => {
 		number = northG.split(' ')
 		numberTwo = northGtwo.split(' ')
 		number = number[0]
-		numberTwo = numerTwo[0]
+		numberTwo = numberTwo[0]
 		if(number === "a"){  // if number is less than 1 it returns the string "a few seconds"
 			number = 1
 		}
@@ -62,6 +62,6 @@ setInterval(() => {
 					console.log(`exect error: ${error}`)
 				}
 		})
-	}, 15000)
+	}, 14005)
 	})
-	}, 31000)
+	}, 28500)
