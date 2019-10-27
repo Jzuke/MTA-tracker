@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Jzuke/MTA-tracker#readme",
   "dependencies": {
+    "csv-parse": "^4.6.5",
     "mta-gtfs": "^1.1.0"
   }
 }
