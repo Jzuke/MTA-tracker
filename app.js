@@ -6,26 +6,6 @@ let mta = new Mta({
   feed_id: 1
 });
 
-// setInterval(() => {
-// mta.schedule('G26', 31).then(function (result) {
-	
-// 	const northG = moment.unix((result.schedule.G26.N[0].arrivalTime)).toNow('mm')
-// 	const northGtwo = moment.unix((result.schedule.G26.N[1].arrivalTime)).toNow('mm')
-// 	let number = northG.split(' ')
-// 	if(northG === "a few seconds"){
-// 		number = 1
-// 	}
-// 	number = number[0]
-	
-// 	const imageChange = execFile('sudo', ['./led-image-viewer', `MTA-tracker/Gtrain_${number[0]}`]['--led-rows=16', '--led-chain=2'], () => {
-// 		if(error){
-// 			throw error;
-// 		}
-// 	})
-
-// })
-// }, 1000)
-
 setInterval(() => {
 	mta.schedule('G26', 31).then(function (result) {
 			
@@ -40,9 +20,6 @@ setInterval(() => {
 		if(number === "a"){  // if number is less than 1 it returns the string "a few seconds"
 			number = 1
 		}
-		if(numberTwo === "a"){  // if number is less than 1 it returns the string "a few seconds"
-			numberTwo = 1
-		}
 
 		const child = exec(`sh train1_shellscripts/train${number}.sh`,
 				(error, stdout, stderr) => {
@@ -54,7 +31,7 @@ setInterval(() => {
 				})
 
 		setTimeout(() => { 
-			const child2 = exec(`sh train2_shellscripts/train${number}.sh`,
+			const child2 = exec(`sh train2_shellscripts/train${numberTwo}.sh`,
 				(error, stdout, stderr) => {
 					console.log(stdout)
 					console.log(stderr)
@@ -62,6 +39,6 @@ setInterval(() => {
 					console.log(`exect error: ${error}`)
 				}
 		})
-	}, 14005)
+	}, 31000)
 	})
-	}, 28500)
+	}, 61000)
